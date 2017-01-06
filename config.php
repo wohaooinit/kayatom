@@ -1,7 +1,7 @@
 <?php
 // phpBB 3.1.x auto-generated configuration file
 // Do not change anything in this file!
-$dbms = 'postgres';
+$dbms = 'phpbb\\db\\driver\\postgres';
 $dbhost = 'ec2-107-20-163-238.compute-1.amazonaws.com';
 $dbport = '5432';
 $dbname = 'd8r6r710fjdvhd';
