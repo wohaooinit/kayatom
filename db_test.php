@@ -13,13 +13,9 @@ $connect = pg_connect($connStr)
   or die("Unable to Connect to '$dbhost'\n\r" .
   pg_last_error() . "\n\r");
 
-$test_query = "SHOW TABLES FROM $dbname";
+$test_query = "select count(*) from information_schema.tables;";
 $result = pg_query($connect, $test_query);
-$tblCnt = 0;
-while($tbl = pg_fetch_array($result)) {
-  $tblCnt++;
-  #echo $tbl[0]."<br />\n";
-}
+$tblCnt = pg_fetch_Object($result, 0);
 if (!$tblCnt) {
   echo "There are no tables<br />\n";
 } else {
