@@ -15,7 +15,7 @@ $connect = pg_connect($connStr)
 
 $test_query = "select count(*) from information_schema.tables;";
 $result = pg_query($connect, $test_query);
-$tblCnt = pg_fetch_Object($result, 0);
+$tblCnt = pg_fetch_object($result, 0);
 if (!$tblCnt) {
   echo "There are no tables<br />\n";
 } else {
