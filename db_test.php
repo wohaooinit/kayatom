@@ -4,7 +4,7 @@
 $dbname = 'd8r6r710fjdvhd';
 $dbuser = 'tndwbpredotanl';
 $dbpass = '751311b31e7d11462f823967d27664dff96ea124999b5a3566b8f9f53f62bd0d';
-$dbhost = 'c2-107-20-163-238.compute-1.amazonaws.com';
+$dbhost = 'ec2-107-20-163-238.compute-1.amazonaws.com';
 
 if(!function_exists(pg_connect))
 	echo "Pg is not included in PHP\n\r";
