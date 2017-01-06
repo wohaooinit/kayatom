@@ -8,7 +8,7 @@ $dbhost = 'c2-107-20-163-238.compute-1.amazonaws.com';
 
 if(!function_exists(pg_connect))
 	echo "Pg is not included in PHP\n\r";
-$connStr = "host='$dbhost'  port=5432 dbname='$dbname' user='$dbuser' password='$dbpass' ";
+$connStr = "host=$dbhost  port=5432 dbname=$dbname user=$dbuser password=$dbpass";
 $connect = pg_connect($connStr) 
   or die("Unable to Connect to '$dbhost'\n\r" .
   pg_last_error() . "\n\r");
