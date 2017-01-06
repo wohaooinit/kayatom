@@ -1,22 +1,22 @@
 <?php
 # Fill our vars and run on cli
 # $ php -f db-connect-test.php
-$dbname = 'rfgd_19040253_kayatom';
-$dbuser = 'rfgd_19040253';
-$dbpass = 'wessedinga16';
-$dbhost = 'sql202.rf.gd';
+$dbname = 'd8r6r710fjdvhd';
+$dbuser = 'tndwbpredotanl';
+$dbpass = '751311b31e7d11462f823967d27664dff96ea124999b5a3566b8f9f53f62bd0d';
+$dbhost = 'c2-107-20-163-238.compute-1.amazonaws.com';
 
-if(!function_exists(mysql_connect))
-	echo "Mysql is not included in PHP\n\r";
-$connect = mysql_connect($dbhost, $dbuser, $dbpass) 
+if(!function_exists(pg_connect))
+	echo "Pg is not included in PHP\n\r";
+$connStr = "host='$dbhost'  port=5432 dbname='$dbname' user='$dbuser' password='$dbpass' ";
+$connect = pg_connect($connStr) 
   or die("Unable to Connect to '$dbhost'\n\r" .
-  mysql_error() . "\n\r");
+  pg_last_error() . "\n\r");
 
-mysql_select_db($dbname) or die("Could not open the db '$dbname'\n\r");
 $test_query = "SHOW TABLES FROM $dbname";
-$result = mysql_query($test_query);
+$result = pg_query($connect, $test_query);
 $tblCnt = 0;
-while($tbl = mysql_fetch_array($result)) {
+while($tbl = pg_fetch_array($result)) {
   $tblCnt++;
   #echo $tbl[0]."<br />\n";
 }
